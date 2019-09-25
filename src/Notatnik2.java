@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
-
 import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JFileChooser;
@@ -22,7 +21,7 @@ import javax.swing.KeyStroke;
 
 public class Notatnik2 extends JFrame implements ActionListener 
 {
-JMenuBar menuBar;
+
 JLabel label1;
 JButton bSzukaj;
 JPopupMenu popup;
@@ -83,6 +82,7 @@ public Notatnik2()
 	menuBar.add(menuPlik);
 	menuBar.add(menuNarzêdzia);
 	menuBar.add(menuNarzêdziaJêzyk);
+	menuBar.add(menuPomoc);
 	
 	notepad = new JTextArea();
 	//notepad.setLineWrap(true);
