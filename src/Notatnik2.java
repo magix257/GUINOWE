@@ -2,6 +2,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 import javax.swing.JButton;
@@ -21,7 +22,7 @@ import javax.swing.KeyStroke;
 
 public class Notatnik2 extends JFrame implements ActionListener 
 {
-
+JMenuBar menuBar;
 JLabel label1;
 JButton bSzukaj;
 JPopupMenu popup;
@@ -37,7 +38,8 @@ public Notatnik2()
 {
 	
 	setTitle("Notatnik");
-	setSize(800,600);setDefaultCloseOperation(EXIT_ON_CLOSE);
+	setSize(800,600);
+	setDefaultCloseOperation(EXIT_ON_CLOSE);
 	setLayout(null);
 	
 	
@@ -161,6 +163,60 @@ public Notatnik2()
 				
 			}
 		}
+		else if (z==mZapisz)
+		{
+		JFileChooser fc = new JFileChooser();
+		if (fc.showSaveDialog(this)==JFileChooser.APPROVE_OPTION)
+		{
+			PrintWriter out;
+			try {
+				out = new PrintWriter(fc.getSelectedFile());
+				ca³oœæ=notepad.getText();
+				Scanner skaner = new Scanner(ca³oœæ);
+				while(skaner.hasNext())
+				{
+					out.println(skaner.hasNextLine());
+				}
+				System.out.print(ca³oœæ);
+				
+				JOptionPane.showMessageDialog(this, ca³oœæ);
+				
+				out.close();
+				
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			
+		}
+		
+		}
+		else if (z==mNarzJêz2)
+		{
+			if (mNarzJêz2.isSelected())
+				mNarz1.setEnabled(true);
+			else
+				mNarz1.setEnabled(false);
+		}
+		
+		else if (z==bSzukaj)
+		{
+			String tekst = notepad.getText();
+			String szukane = tSzukany.getText();
+			String wyst¹pienia = "";
+			int i = 0;
+			int index;
+			int startIndex = 0;
+			while ((index = tekst.indexOf(szukane, startIndex)) != -1)
+			{
+				
+				startIndex = index + szukane.length();
+				i++;
+				wyst¹pienia = wyst¹pienia + " " + index;
+			}
+			
+		}
 		
 		else if (z==mpKopiuj)
 		{
@@ -177,5 +233,8 @@ public Notatnik2()
 		}
 	}
 
-	
+	public static void main(String[] args) {
+		Notatnik2 rameczka = new Notatnik2();
+		rameczka.setVisible(true);
+	}
 }
