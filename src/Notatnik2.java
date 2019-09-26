@@ -79,6 +79,8 @@ public Notatnik2()
 	menuPomoc = new JMenu("Pomoc");
 	mOProgramie = new JMenuItem("OProgramie");
 	
+	setJMenuBar(menuBar);
+	
 	menuBar.add(menuPlik);
 	menuBar.add(menuNarzêdzia);
 	menuBar.add(menuNarzêdziaJêzyk);
@@ -216,6 +218,7 @@ public Notatnik2()
 				wyst¹pienia = wyst¹pienia + " " + index;
 			}
 			
+			JOptionPane.showMessageDialog(null, szukane + "wyst¹pi³o " + i + "razy: " + wyst¹pienia);
 		}
 		
 		else if (z==mpKopiuj)
